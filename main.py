@@ -1,8 +1,3 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
 from typing import Union
 
 from fastapi import FastAPI, Query
@@ -23,5 +18,5 @@ def read_root():
 
 
 @app.get("/items/{item_id}")
-def return_item(item_id: int, q: Person = Query(None)):
+def return_item(item_id: int, q: Union[Person, None] = None):
     return {"item_id": item_id, "q": q.name}
